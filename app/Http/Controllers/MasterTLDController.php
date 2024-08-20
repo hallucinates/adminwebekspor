@@ -62,7 +62,7 @@ class MasterTLDController extends Controller
 
         TLD::create([
             'name'  => $request->name,
-            'harga' => str_replace('.', '', $request->harga),
+            'harga' => $request->harga,
 
             'created_by' => Auth::user()->name,
         ]);

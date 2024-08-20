@@ -166,8 +166,19 @@
                             <a href="#"><i class="fe-edit"></i>File
                             </a>
                             <ul class="submenu">
-                                <li><a href="{{ url('template') }}">Template</a></li>
-                                <li><a href="{{ url('tld') }}">TLD</a></li>
+                                <li class="has-submenu">
+                                    <a href="#">Populer <div class="arrow-down"></div></a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ url('populer/template') }}">Template</a></li>
+                                        <li><a href="{{ url('populer/tld') }}">TLD</a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-submenu">
+                                    <a href="#">Promo <div class="arrow-down"></div></a>
+                                    <ul class="submenu">
+                                        <li><a href="{{ url('promo/tld') }}">TLD</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </li>
 

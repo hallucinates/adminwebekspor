@@ -30,4 +30,5 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('master/kategori', 'App\Http\Controllers\MasterKategoriController');
     Route::resource('master/tld', 'App\Http\Controllers\MasterTLDController');
+    Route::resource('master/template', 'App\Http\Controllers\MasterTemplateController');
 });

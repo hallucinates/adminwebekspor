@@ -12,6 +12,7 @@ class Template extends Model
         'kategori_id',
         'name',
         'gambar',
+        'harga',
         'beli',
         'beli_palsu',
 

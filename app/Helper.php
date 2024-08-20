@@ -279,4 +279,37 @@ class Helper
 
         return $tgl_indo;
     }
+
+    public static function upload($path, $file) { 
+        $fileName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $fileExtension = $file->getClientOriginalExtension();
+
+        $fileName = str_replace(' ', '-', $fileName);
+
+        $fileNameToStore = $fileName;
+        $counter = 1;
+
+        while (file_exists(public_path($path . $fileNameToStore . '.' . $fileExtension))) {
+            $fileNameToStore = $fileName . '-' . $counter;
+            $counter++;
+        }
+
+        $fileNameToStore = $fileNameToStore . '.' . $fileExtension;
+        $file->move(public_path($path), $fileNameToStore);
+        $filePath = url($path . $fileNameToStore);
+
+        return $filePath;
+    }
+
+    public static function moveTrash($path, $file) { 
+        $startPos = strpos($file, '/storage');
+        $relativePath = substr($file, $startPos);
+
+        $asliPath = public_path($relativePath);
+        $sampahPath = public_path($path . basename($relativePath));
+    
+        if (file_exists($asliPath)) {
+            rename($asliPath, $sampahPath);
+        }
+    }
 }
